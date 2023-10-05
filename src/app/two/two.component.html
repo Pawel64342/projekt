@@ -9,12 +9,29 @@
           <h1>Wykres 3D</h1>
         </div>
         <p class="myText">
-          Z powodów technicznych wykres nie przedstawia aktualnych kursów walut !!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dignissim tellus et purus tristique, 
-          at interdum eros rutrum. Nullam et ligula at massa pretium efficitur. Vivamus porta tellus urna. 
-          Phasellus imperdiet venenatis sapien, sollicitudin vestibulum ante. Pellentesque vel placerat justo.
-           Etiam placerat lorem odio, a eleifend lorem dignissim quis. Aliquam vitae pellentesque ipsum. 
-           Nam bibendum mattis metus, eu volutpat lectus sodales eu. 
-           </p>
+          <b>Wykres 3D</b> umożliwia graficzną prezentację danych liczbowych za pomocą obiektów trójwymiarowych
+          biblioteki 
+          <a href="https://threejs.org/"> Three.js, </a>
+         która pozwala na tworzenie brył 3D, kamer, świateł, materiałów i innych
+          elementów potrzebnych do tworzenia realistycznych i interaktywnych scen 3D.
+          Kod przedstawionego wykresu jest przystosowany do pobierania danych poprzez protokół HTTP z API
+          udostępnionego przez Narodowy Bank Polski, jednak z powodu ograniczeń na serwerze Vercel,
+          wyświetlane są dane generowane przez program.
+          Element select umożliwia wybór jednej z opcji (kod waluty), po czym następuje przekazanie
+          kodu wybranej waluty do funkcji odpowiedzialnej za generowanie danych i na ich podstawie tworzone
+          są poszczególne elementy wykresu:</p>
+        <ul>
+          <li>prostopadłościany, których wysokość odpowiada jednej z wygenerowanych liczb, </li>
+          <li>obiekt odpowiadający wyliczonej średniej arytmetycznej danych liczb, </li>
+          <li>cyfry i litery, </li>
+          <li>obiekt wyświetlający flagę kraju wybranej waluty (z powodu ograniczeń na serwerze flaga kraju
+            wyświetlana jest tylko w niektórych przypadkach). </li>
+        </ul>
+        <p>
+          Za pomocą myszy można obracać wykres względem osi x i y, oraz oddalać go i przybliżać.
+         
+        </p>
+        <hr>
            <div id="select">
            <label>Wybierz walutę </label>
            <select style="width:200px;" id="s1" (change)='klik(s1.value)' #s1 >
@@ -63,7 +80,7 @@
           <h1></h1>
         </div>
         <p class="myText">
-         test 
+        
         </p>
         <div class="Logos">
   
