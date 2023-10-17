@@ -71,7 +71,15 @@ export class ServiceCurrService {
 
 
 
+  test1(): Observable<any> {
+    return this.http.get('http://localhost:9003/api/todoapp/GetNotes');
+  }
 
+
+  test2(formData:any): Observable<any> {
+    return this.http.put('http://localhost:9003/api/todoapp/UpdateNumber',formData);
+
+  }
 
 
 

@@ -1,113 +1,83 @@
+<section class="bg1">
+  <div class="space1"></div>
+  <div class="contentText">
 
-<!-- <div id="app"> -->
+    <div class="title">
+      <h1>Wykres 3D</h1>
+    </div>
+    <p class="myText">
+      <b>Wykres 3D</b> umożliwia graficzną prezentację danych liczbowych za pomocą obiektów trójwymiarowych
+      biblioteki
+      <a href="https://threejs.org/"> Three.js, </a>
+      która pozwala na tworzenie brył 3D, kamer, świateł, materiałów i innych
+      elementów potrzebnych do tworzenia realistycznych i interaktywnych scen 3D.
+      Kod przedstawionego wykresu jest przystosowany do pobierania danych poprzez protokół HTTP z API
+      udostępnionego przez Narodowy Bank Polski.
+      Element select umożliwia wybór jednej z opcji (kod waluty), po czym następuje przekazanie
+      kodu wybranej waluty do funkcji odpowiedzialnej za generowanie danych i na ich podstawie tworzone
+      są poszczególne elementy wykresu:
+    </p>
+    <ul>
+      <li>prostopadłościany, których wysokość odpowiada jednej z wygenerowanych liczb, </li>
+      <li>obiekt odpowiadający wyliczonej średniej arytmetycznej danych liczb, </li>
+      <li>cyfry i litery, </li>
+      <li>obiekt wyświetlający flagę kraju wybranej waluty (z powodu ograniczeń na serwerze flaga kraju
+        wyświetlana jest tylko w niektórych przypadkach). </li>
+    </ul>
+    <p>
+      Za pomocą myszy można obracać wykres względem osi x i y, oraz oddalać go i przybliżać.
 
-    <section class="bg1">
-      <div class="space1"></div>
-      <div class="contentText">
-  
-        <div class="title">
-          <h1>Wykres 3D</h1>
-        </div>
-        <p class="myText">
-          <b>Wykres 3D</b> umożliwia graficzną prezentację danych liczbowych za pomocą obiektów trójwymiarowych
-          biblioteki 
-          <a href="https://threejs.org/"> Three.js, </a>
-         która pozwala na tworzenie brył 3D, kamer, świateł, materiałów i innych
-          elementów potrzebnych do tworzenia realistycznych i interaktywnych scen 3D.
-          Kod przedstawionego wykresu jest przystosowany do pobierania danych poprzez protokół HTTP z API
-          udostępnionego przez Narodowy Bank Polski, jednak z powodu ograniczeń na serwerze Vercel,
-          wyświetlane są dane generowane przez program.
-          Element select umożliwia wybór jednej z opcji (kod waluty), po czym następuje przekazanie
-          kodu wybranej waluty do funkcji odpowiedzialnej za generowanie danych i na ich podstawie tworzone
-          są poszczególne elementy wykresu:</p>
-        <ul>
-          <li>prostopadłościany, których wysokość odpowiada jednej z wygenerowanych liczb, </li>
-          <li>obiekt odpowiadający wyliczonej średniej arytmetycznej danych liczb, </li>
-          <li>cyfry i litery, </li>
-          <li>obiekt wyświetlający flagę kraju wybranej waluty (z powodu ograniczeń na serwerze flaga kraju
-            wyświetlana jest tylko w niektórych przypadkach). </li>
-        </ul>
-        <p>
-          Za pomocą myszy można obracać wykres względem osi x i y, oraz oddalać go i przybliżać.
-         
-        </p>
-        <hr>
-           <div id="select">
-           <label>Wybierz walutę </label>
-           <select style="width:200px;" id="s1" (change)='klik(s1.value)' #s1 >
-            <ng-container *ngFor="let p of CurrCodesandNames; let i=index;">
-                <ng-container *ngIf='p[0] === "CHF"; else else1'>
-                    <option value={{p[0]}} selected>{{p[1]}} ({{p[0]}})</option>
-                </ng-container>
-          
-                <ng-template #else1>
-            <option value={{p[0]}}>{{p[1]}} ({{p[0]}})</option>
-                </ng-template>
+    </p>
+    <hr>
+    <div id="select">
+      <label>Wybierz walutę </label>
+      <select style="width:200px;" id="s1" (change)='klik(s1.value)' #s1>
+        <ng-container *ngFor="let p of CurrCodesandNames; let i=index;">
+          <ng-container *ngIf='p[0] === "CHF"; else else1'>
+            <option value={{p[0]}} selected>{{p[1]}} ({{p[0]}})</option>
           </ng-container>
-          </select>
-        </div>
-        <!-- <div class="Logos">
-  
-          <div class="techLogo" id="htmlLogo"></div>
-          <div class="techLogo" id="cssLogo"></div>
-          <div class="techLogo" id="jsLogo"></div>
-          <div class="techLogo" id="bootstrapLogo"></div>
-  
-        </div>
-        <div class="buttons">
-          <a href="http://itspa.ct8.pl/" target="_blank">
-            <p class="GithubButton"></p>
-          </a>
-          <a href="http://itspa.ct8.pl/" target="_blank">
-            <p class="NetButton" id="SpaButton"></p>
-          </a>
-        </div> -->
-        <div id="displayText"></div> 
-      </div>
-      <!-- <div class="space"></div> -->
 
-     
+          <ng-template #else1>
+            <option value={{p[0]}}>{{p[1]}} ({{p[0]}})</option>
+          </ng-template>
+        </ng-container>
+      </select>
+    </div>
 
+    <div id="displayText"></div>
+  </div>
 
+</section>
 
-     
-    </section>
-  
-    <section class="bg2">
-      <div class="contentText">
-  
-        <div class="title">
-          <h1></h1>
-        </div>
-        <p class="myText">
-        
-        </p>
-        <div class="Logos">
-  
-          <div class="techLogo" id="htmlLogo"></div>
-          <div class="techLogo" id="cssLogo"></div>
-          <div class="techLogo" id="jsLogo"></div>
-          <div class="techLogo" id="bootstrapLogo"></div>
-          <div class="techLogo" id="mongoDBLogo"></div>
-  
-          <div class="techLogo" id="AngularLogo"></div>
-          <div class="techLogo" id="expressLogo"></div>
-        </div>
-  
-        <div class="buttons">
-          <a href="http://itspa.ct8.pl/" target="_blank">
-            <p class="GithubButton" target="_blank"></p>
-          </a>
-          <a href="http://listazadan.herokuapp.com/" target="_blank">
-            <p class="NetButton" id="ListaButton"></p>
-          </a>.
-        </div>
-      </div>
-      <div class="space"></div>
-    </section>
+<section class="bg2">
+  <div class="contentText">
 
-  
-  
-  
-  <!-- </div> -->
+    <div class="title">
+      <h1></h1>
+    </div>
+    <p class="myText">
 
+    </p>
+    <div class="Logos">
+
+      <div class="techLogo" id="htmlLogo"></div>
+      <div class="techLogo" id="cssLogo"></div>
+      <div class="techLogo" id="jsLogo"></div>
+      <div class="techLogo" id="bootstrapLogo"></div>
+      <div class="techLogo" id="mongoDBLogo"></div>
+
+      <div class="techLogo" id="AngularLogo"></div>
+      <div class="techLogo" id="expressLogo"></div>
+    </div>
+
+    <div class="buttons">
+      <a href="" target="_blank">
+        <p class="GithubButton" target="_blank"></p>
+      </a>
+      <a href="" target="_blank">
+        <p class="NetButton" id="ListaButton"></p>
+      </a>.
+    </div>
+  </div>
+  <div class="space"></div>
+</section>

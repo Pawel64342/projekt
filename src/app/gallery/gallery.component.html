@@ -41,12 +41,28 @@
         <h1>Opis</h1>
       </div>
       <p class="myText">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dignissim tellus et purus tristique, 
-        at interdum eros rutrum. Nullam et ligula at massa pretium efficitur. Vivamus porta tellus urna. 
-        Phasellus imperdiet venenatis sapien, sollicitudin vestibulum ante. Pellentesque vel placerat justo.
-         Etiam placerat lorem odio, a eleifend lorem dignissim quis. Aliquam vitae pellentesque ipsum. 
-         Nam bibendum mattis metus, eu volutpat lectus sodales eu. 
+       
       </p>
+      <ng-container *ngIf='descriptionDisplay; else else1'>
+        {{description}}
+        <br>
+        <b>{{positive}}</b>
+        <button (click)="updateNumber(numberPhoto, positive,negative,'Plus')" [disabled]="plusToggle"
+        
+        >Plus</button>
+        <b>{{negative}}</b>
+        <button (click)="updateNumber(numberPhoto, positive,negative, 'Minus')" [disabled]="minusToggle"
+          >Minus</button>
+      </ng-container>
+      <p>
+        <ng-template #else1>
+          <div id="template">
+            Przybliż zdjęcie aby wyświetlić opis.</div>
+        </ng-template>
+      </p>
+
+
+
       <div class="Logos">
 
         <div class="techLogo" id="htmlLogo"></div>
@@ -60,10 +76,10 @@
       </div>
 
       <div class="buttons">
-        <a href="http://itspa.ct8.pl/" target="_blank">
+        <a href="" target="_blank">
           <p class="GithubButton" target="_blank"></p>
         </a>
-        <a href="http://listazadan.herokuapp.com/" target="_blank">
+        <a href="" target="_blank">
           <p class="NetButton" id="ListaButton"></p>
         </a>.
       </div>
