@@ -144,7 +144,8 @@ export class TwoComponent implements OnInit {
         for (let i = 0; i < hights.length; i++) {
           let cubeHight = (hights[i]);
           cubeHight2[i] = cubeHight
-          var cubeGeometry = new THREE.BoxGeometry(0.4, cubeHight, 1);
+         var cubeGeometry = new THREE.BoxGeometry(0.4, cubeHight, 1);
+          
           let color7 = 0xD2E2FF
           let material7 = new THREE.MeshPhongMaterial({
             color: color7,
@@ -169,7 +170,7 @@ export class TwoComponent implements OnInit {
             loaderText.load('../assets/Inter_Regular.json', function (font) {
               const tgeometry = new TextGeometry(text, {
                 font: font,
-                size: 0.12,
+                size: 0.13,
                 height: 0.12,
               });
               let textMesh1 = new THREE.Mesh(tgeometry, [
@@ -177,7 +178,7 @@ export class TwoComponent implements OnInit {
                 new THREE.MeshNormalMaterial()
               ])
               if (hights[i] == maxValue1 || hights[i] == minValue1) {
-                textMesh1.position.set(-10 + i / 2 - 0.3, cubeHight - 1.55, 1.25);
+                textMesh1.position.set(-10 + i / 2 - 0.3, cubeHight - 1.4, 1.25);
               } else { textMesh1.position.set(-10 + i / 2 - 0.28, cubeHight - 2, 1.25); }
               scene.add(textMesh1)
             });
@@ -195,7 +196,7 @@ export class TwoComponent implements OnInit {
         let avgText = avg
         const geometryAv = new THREE.PlaneGeometry(hights.length * 0.5, 0.1);
         const materialAv = new THREE.MeshBasicMaterial(
-          { color: 0xffffff, side: THREE.DoubleSide });
+          { color: 0x222fff, side: THREE.DoubleSide });
         const planeAv = new THREE.Mesh(geometryAv, materialAv);
         planeAv.position.set(1, avg - 2, 1.7);
     
@@ -203,16 +204,16 @@ export class TwoComponent implements OnInit {
         scene.add(planeAv);
         let textAvg;
         loaderText.load('../assets/Inter_Regular.json', function (font) {
-          const tgeometry = new TextGeometry("AVG " + avg.toFixed(4), {
+          const tgeometry = new TextGeometry("Średnia " + avg.toFixed(4), {
             font: font,
             size: 0.2,
-            height: 0.2,
+            height: 0.1,
           });
           textAvg = new THREE.Mesh(tgeometry, [
-            new THREE.MeshBasicMaterial({ color: 0xffffff }),
+            new THREE.MeshBasicMaterial({ color: 0x222fff }),
             new THREE.MeshNormalMaterial()
           ])
-          textAvg.position.set(-11, avg - 2, 1.7);
+          textAvg.position.set(-10, avg -1.2, 1.7);
           scene.add(textAvg);
         });
         let textDates
